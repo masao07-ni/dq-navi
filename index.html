@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日どこ行く？（Leaflet版）</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="range-selector">
+      <label for="rangeSelect">距離を選ぶ：</label>
+      <select id="rangeSelect">
+        <option value="1">徒歩3分（約300m）</option>
+        <option value="2">徒歩5分（約500m）</option>
+        <option value="3" selected>徒歩10分（約1km）</option>
+      </select>
+    </div>
+
+    <div class="button-group">
+      <button id="startBtn" class="btn">スタート！</button>
+      <button id="rerollBtn" class="btn" style="display: none;">もう1回！</button>
+      <p id="genreMessage" class="genre-message"></p>
+    </div>
+
+    <div id="map" class="map-area"></div>
+
+    <div id="historySection" class="history">
+      <button id="toggleHistoryBtn" onclick="toggleHistory()" class="btn">履歴を見る</button>
+      <button onclick="clearHistory()" class="btn btn-warning">履歴を消す</button>
+      <ul id="historyList" style="display: none;"></ul>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
