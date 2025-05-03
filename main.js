@@ -160,4 +160,8 @@ const genreList = [
   { code: "G014", name: "カフェ・スイーツ" }
 ];
 
+document.getElementById("closeIntroBtn").addEventListener("click", () => {
+  document.getElementById("introBox").style.display = "none";
+});
+
 renderHistory();

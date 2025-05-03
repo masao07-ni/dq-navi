@@ -98,6 +98,29 @@ body {
   #historyList li a:hover {
     text-decoration: underline;
   }
+
+  .intro-box {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 1rem;
+    z-index: 2000;
+    font-family: 'DotGothic16', sans-serif;
+    text-align: center;
+    line-height: 1.6;
+    border-radius: 4px;
+  }
+  
+  #closeIntroBtn {
+    margin-top: 1rem;
+  }
+  
   
   @media screen and (max-width: 600px) {
     .container {
