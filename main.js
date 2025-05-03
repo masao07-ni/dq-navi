@@ -40,7 +40,6 @@ function fetchShops(lat, lng) {
 
   const genreParam = '';
   const encodedURL = encodeURIComponent(
-    `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${apiKey}&lat=${lat}&lng=${lng}&range=${selectedRange}&count=100${genreParam}&format=json`
     `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${apiKey}&lat=${lat}&lng=${lng}&range=${selectedRange}&count=30${genreParam}&format=json`
   );
 
@@ -102,7 +101,7 @@ navigator.geolocation.getCurrentPosition(
   },
   error => {
     console.error("位置情報取得失敗:", error);
-    alert("位置情報の取得に失敗しました。");
+    alert("【位置情報エラー】スマホの設定やブラウザの許可を確認してください。");
   },
   {
     enableHighAccuracy: true,
@@ -111,16 +110,7 @@ navigator.geolocation.getCurrentPosition(
   }
 );
 
-document.getElementById("startBtn").addEventListener("click", () => {
-  if (!selectedGenre) {
-    const randomGenre = genreList[Math.floor(Math.random() * genreList.length)];
-    selectedGenre = randomGenre.code;
-  }
 
-  fetchShops(currentLat, currentLng);
-  document.getElementById("startBtn").style.display = "none";
-  document.getElementById("rerollBtn").style.display = "inline-block";
-});
 
 document.getElementById("rerollBtn").addEventListener("click", () => {
   fetchShops(currentLat, currentLng);
@@ -164,6 +154,22 @@ const genreList = [
 document.getElementById("closeIntroBtn").addEventListener("click", () => {
   document.getElementById("introBox").style.display = "none";
   document.getElementById("introOverlay").style.display = "none"; // ← これも追加！
+});
+
+document.getElementById("startBtn").addEventListener("click", () => {
+  if (!currentLat || !currentLng) {
+    alert("現在地がまだ取得できていません。少し待ってもう一度お試しください。");
+    return;
+  }
+
+  if (!selectedGenre) {
+    const randomGenre = genreList[Math.floor(Math.random() * genreList.length)];
+    selectedGenre = randomGenre.code;
+  }
+
+  fetchShops(currentLat, currentLng);
+  document.getElementById("startBtn").style.display = "none";
+  document.getElementById("rerollBtn").style.display = "inline-block";
 });
 
 
