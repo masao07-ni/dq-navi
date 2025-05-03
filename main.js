@@ -162,6 +162,8 @@ const genreList = [
 
 document.getElementById("closeIntroBtn").addEventListener("click", () => {
   document.getElementById("introBox").style.display = "none";
+  document.getElementById("introOverlay").style.display = "none"; // ← これも追加！
 });
+
 
 renderHistory();

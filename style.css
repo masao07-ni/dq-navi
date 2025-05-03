@@ -116,6 +116,17 @@ body {
     line-height: 1.6;
     border-radius: 4px;
   }
+
+  .intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 半透明の黒幕 */
+    z-index: 1000;
+  }
+  
   
   #closeIntroBtn {
     margin-top: 1rem;
@@ -148,6 +159,24 @@ body {
   
     #historyList {
       font-size: 0.9rem;
+    }
+
+    .intro-box {
+      top: 5%;
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      max-width: 90%;
+      line-height: 1.5;
+    }
+  
+    #closeIntroBtn {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+  
+    .intro-overlay {
+      /* 念のため明示的に表示 */
+      background-color: rgba(0, 0, 0, 0.8);
     }
   }
   
