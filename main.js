@@ -41,6 +41,7 @@ function fetchShops(lat, lng) {
   const genreParam = '';
   const encodedURL = encodeURIComponent(
     `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${apiKey}&lat=${lat}&lng=${lng}&range=${selectedRange}&count=100${genreParam}&format=json`
+    `https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=${apiKey}&lat=${lat}&lng=${lng}&range=${selectedRange}&count=30${genreParam}&format=json`
   );
 
   const url = `${proxy}${encodedURL}`;
